@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # CircleCI Go images available at: https://hub.docker.com/r/circleci/golang/
+      - image: circleci/golang:1.10.2-stretch-browsers
+    working_directory: /go/src/github.com/marten-seemann/circle-ci-test
+    steps:
+      - checkout
+      - run: uname -a
+      - run: go version
+      - run: google-chrome --version
+      - restore_cache:
+          keys:
+            - v1-pkg-cache
