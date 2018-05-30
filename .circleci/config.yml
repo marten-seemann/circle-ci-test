@@ -6,18 +6,14 @@ jobs:
     working_directory: /go/src/github.com/marten-seemann/circle-ci-test
     steps:
       - checkout
-      - run: uname -a
-      - run: go version
-      - run: google-chrome --version
+      - run: ./.circleci/script.sh
   build-go1.9:
     docker:
       - image: circleci/golang:1.9.6-stretch-browsers
     working_directory: /go/src/github.com/marten-seemann/circle-ci-test
     steps:
       - checkout
-      - run: uname -a
-      - run: go version
-      - run: google-chrome --version
+      - run: ./.circleci/script.sh
 workflows:
   version: 2
   build:
